@@ -203,21 +203,63 @@ OUTPUT "THE STRING HAS ALL ALPHABETS: ",isfound
 
 [PSCUEDOCODE]:
 
+        DECLARE str1, str2: STRING
+        DECLARE char1, char2: CHARACTER
+        DECLARE i, j, chrcnt: INTEGER
+
+        str1 = ""
+        str2 = ""
+        char1 = ''
+        char2 = ''
+        i = 0
+        j = 0
+        chrcnt = 0
+
+        INPUT "ENTER THE STRING: ",str1
+
+        FOR i = 1 TO LEN(str1)
+            char1 = MID(str1, i, 1)
+            FOR j = 1 TO LEN(str1)
+                char2 = MID(str1, j, 1)
+                IF char1 = char2 
+                  THEN
+                    chrcnt = chrcnt + 1
+                END IF
+            NEXT j
+            OUTPUT "THIS CHARACTER IS: ",char1
+            OUTPUT "IT APPEARED: ",(chrcnt +"TIMES")
+            chrcnt = 0
+        NEXT i
 [VB]:
+
+        Dim str1, str2 As String
+        Dim char1, char2 As Char
+        Dim i, j, chrcnt As Integer
+
+        str1 = ""
+        str2 = ""
+        char1 = ""
+        char2 = ""
+        i = 0
+        j = 0
+        chrcnt = 0
 
         Console.Write("ENTER THE STRING: ")
         str1 = Console.ReadLine
 
-        str1 = str2
         For i = 1 To Len(str1)
             char1 = Mid(str1, i, 1)
             For j = 1 To Len(str1)
-                pos1 = InStr(pos1, str1, char1)
-                If pos1 > 0 Then
-                    charactercount = charactercount + 1
+                char2 = Mid(str1, j, 1)
+                If char1 = char2 Then
+                    chrcnt = chrcnt + 1
                 End If
-
             Next j
+            Console.WriteLine("THIS CHARACTER IS: " & char1)
+            Console.WriteLine("IT APPEARED: " & chrcnt & "TIMES")
+            chrcnt = 0
+        Next i
+        Console.ReadKey()
 
 5. Find the count of vowels characters in an entered string separately. 
 
