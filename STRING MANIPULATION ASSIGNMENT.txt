@@ -1,0 +1,645 @@
+AS String Assignment:
+
+1. Find if the input string has all the alphabets; capital or small alike.
+
+[PSCUEDOCODE]:
+
+DECLARE str1, alphabets: STRING
+DECLARE char1: CHARACTER
+DECLARE i: INTEGER
+DECLARE isfound: BOOLEAN
+
+str1 = ""
+char1 = ''
+i = 0
+isfound = True
+alphabets="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+INPUT "ENTER THE STRING: ",str1
+
+str1 = UPPERCASE(str1)
+FOR i = 1 To LEN(alphabets)
+  char1 = Mid(alphabets, i, 1)
+    IF LOCATE(str1, char1) = 0 
+      THEN
+        isfound = False
+    END IF
+NEXT i
+
+OUTPUT "THE STRING HAS ALL ALPHABETS: ",isfound
+        
+  
+
+
+[VB]:
+
+        Dim str1, alphabets As String
+        Dim char1 As Char
+        Dim i As Integer
+        Dim isfound As Boolean
+
+        str1 = ""
+        char1 = ""
+        i = 0
+        isfound = True
+        alphabets="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+
+        str1 = UCase(str1)
+        For i = 1 To Len(alphabets)
+            char1 = Mid(alphabets, i, 1)
+            If InStr(str1, char1) = 0 Then
+                isfound = False
+            End If
+        Next i
+        Console.WriteLine("THE STRING HAS ALL ALPHABETS: " & isfound)
+        Console.ReadKey()
+
+
+2. Replace selected character with another in entered string.
+
+
+[PSCUEDOCODE]:
+
+        DECLARE str1, str2: STRING
+        DECLARE char1, char2, char3: CHARACTER
+        DECLARE i: INTEGER
+
+        str1 = ""
+        str2 = ""
+        char1 = ''
+        char2 = ''
+        char3 = ''
+        i = 0
+
+        INPUT "ENTER THE STRING: ",str1
+        INPUT "ENTER THE CHARACTER TO BE REPLACED FROM STRING: ",char1
+        INPUT "ENTER THE CHARACTER TO BE REPLACED WITH IN STRING: ",char2
+
+
+        FOR i = 1 TO LEN(str1)
+            char3 = Mid(str1, i, 1)
+            IF char3 = char1
+              THEN
+                str2 = str2 + char2
+              ELSE
+                str2 = str2 + char3
+            END IF
+        NEXT i
+        IF char3 = char1
+          THEN
+            OUTPUT "THE RESULT IS: ",str2
+          ELSE
+            OUTPUT "THE RESULT IS: ", str2
+        END IF
+
+[VB]:
+
+        Dim str1, str2 As String
+        Dim char1, char2, char3 As Char
+        Dim i As Integer
+
+        str1 = ""
+        str2 = ""
+        char1 = ""
+        char2 = ""
+        char3 = ""
+        i = 0
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+        Console.Write("ENTER THE CHARACTER TO BE REPLACED FROM STRING: ")
+        char1 = Console.ReadLine
+        Console.Write("ENTER THE CHARACTER TO BE REPLACED WITH IN STRING: ")
+        char2 = Console.ReadLine
+
+        For i = 1 To Len(str1)
+            char3 = Mid(str1, i, 1)
+            If char3 = char1 Then
+                str2 = str2 & char2
+            Else
+                str2 = str2 & char3
+            End If
+        Next i
+        If char3 = char1 Then
+            Console.WriteLine("THE RESULT IS: " & str2)
+        Else
+            Console.WriteLine("THE RESULT IS: " & str2)
+        End If
+        Console.ReadKey()
+
+3. Count and output the NUMBER of an entered character in a string. Also output separate counts for alphabets (cap & small together), digits and other characters in same entered string. 
+
+
+[PSCUEDOCODE]:
+
+        DECLARE str1: STRING
+        DECLARE char1: CHARACTER
+        DECLARE i, numberofalphabets, numberofdigits, numberofrest: INTEGER
+
+        str1 = ""
+        char1 = ''
+        i = 0
+        numberofalphabets = 0
+        numberofdigits = 0
+        numberofrest = 0
+
+
+        INPUT "ENTER THE STRING: ",str1
+        str1 = UPPERCASE(str1)
+        FOR i = 1 TO LEN(str1)
+            char1 = Mid(str1, i, 1)
+            IF char1 >= "A" AND char1 <= "Z" 
+              THEN
+                numberofalphabets = numberofalphabets + 1
+            ELSEIF ASC(char1) >= 48 And ASC(char1) <= 57 Then
+                numberofdigits = numberofdigits + 1
+            ELSE
+                numberofrest = numberofrest + 1
+            END IF
+        NEXT i
+
+        OUTPUT "NUMBER OF ALPHABETS IN A STRING ARE: ",numberofalphabets
+        OUTPUT "NUMBER OF DIGITS IN A STRING ARE: ",numberofdigits
+        OUTPUT "NUMBER OF OTHER CHARACTERS IN A STRING ARE: ",numberofrest
+
+
+[VB]:
+
+        Dim str1 As String
+        Dim char1 As Char
+        Dim i, numberofalphabets, numberofdigits, numberofrest As Integer
+
+        str1 = ""
+        char1 = ""
+        i = 0
+        numberofalphabets = 0
+        numberofdigits = 0
+        numberofrest = 0
+
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+        str1 = UCase(str1)
+        For i = 1 To Len(str1)
+            char1 = Mid(str1, i, 1)
+            If char1 >= "A" And char1 <= "Z" Then
+                numberofalphabets = numberofalphabets + 1
+            ElseIf Asc(char1) >= 48 And Asc(char1) <= 57 Then
+                numberofdigits = numberofdigits + 1
+            Else
+                numberofrest = numberofrest + 1
+            End If
+        Next i
+
+        Console.WriteLine("NUMBER OF ALPHABETS IN A STRING ARE: " & numberofalphabets)
+        Console.WriteLine("NUMBER OF DIGITS IN A STRING ARE: " & numberofdigits)
+        Console.WriteLine("NUMBER OF OTHER CHARACTERS IN A STRING ARE: " & numberofrest)
+        Console.ReadKey()
+
+4. Find the character that appears most number of times in an entered string and output it.
+
+[PSCUEDOCODE]:
+
+[VB]:
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+
+        str1 = str2
+        For i = 1 To Len(str1)
+            char1 = Mid(str1, i, 1)
+            For j = 1 To Len(str1)
+                pos1 = InStr(pos1, str1, char1)
+                If pos1 > 0 Then
+                    charactercount = charactercount + 1
+                End If
+
+            Next j
+
+5. Find the count of vowels characters in an entered string separately. 
+
+[PSCUEDOCODE]:
+
+DECLARE str1: STRING
+DECLARE char1: CHARACTER
+DECLARE i,numberofvowels: INTEGER
+
+str1=""
+char1=''
+i=0
+numberofvowels=0
+
+INPUT "ENTER THE STRING: ",str1
+
+FOR i= 1 TO LEN(str1)
+  char1 = Mid(str1, J, 1)
+  char1 = UCase(char1)
+  IF char1 = 'A' Or char1 = 'E' Or char1 = 'I' Or char1 = 'O' Or char1 = 'U' 
+    THEN
+      numberofvowels=numberofvowels + 1
+  ENDIF
+NEXT
+
+OUTPUT "NUMBER OF VOWELS IN STRING ARE: ",numberofvowels
+
+
+
+
+[VB]:
+
+        Dim str1 As String
+        Dim char1 As Char
+        Dim J, numberofvowels As Integer
+
+        str1 = ""
+        char1 = ""
+        J = 0
+        numberofvowels = 0
+        
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+
+        For J = 1 To Len(str1)
+            char1 = Mid(str1, J, 1)
+            char1 = UCase(char1)
+            If char1 = "A" Or char1 = "E" Or char1 = "I" Or char1 = "O" Or char1 = "U" Then
+                numberofvowels = numberofvowels + 1
+            End If
+        Next
+
+        Console.WriteLine("NUMBER OF VOWELS IN STRING ARE: " & numberofvowels)
+        Console.ReadKey()
+
+6.
+donuts:
+INPUT an INT count of a number of donuts, OUTPUT a string
+of the form 'Number of donuts: <count>', where <count> is the number
+input. However, if the count is 10 or more, then use the word 'many'
+instead of the actual count.
+So donuts(5) outputs 'Number of donuts: 5'
+and donuts(23) outputs 'Number of donuts: many'
+
+[PSUEDOCODE]:
+
+        DECLARE donuts: INTEGER
+
+        donuts = 0
+
+        INPUT "ENTER THE NUMBER OF DONUTS: ",donuts
+
+        IF donuts >= 10 
+          THEN
+            OUTPUT "THE NUMBER OF DONUTS: TOO MANY"
+        ELSE
+            OUTPUT "THE NUMBER OF DONUTS: ",donuts
+        END IF
+
+[VB]:
+
+        Dim donuts As Integer
+
+        donuts = 0
+
+        Console.Write("ENTER THE NUMBER OF DONUTS: ")
+        donuts = Console.ReadLine
+
+        If donuts >= 10 Then
+            Console.WriteLine("THE NUMBER OF DONUTS: TOO MANY")
+        Else
+            Console.WriteLine("THE NUMBER OF DONUTS: " & donuts)
+        End If
+        Console.ReadKey()
+
+7.
+both_ends:
+Input a string s, output a string made of the first 2
+and the last 2 chars of the original string,
+so 'spring' yields 'spng'. However, if the string length
+is less than 2, return string s instead the empty string.
+
+[PSCUEDOCODE]:
+
+        DECLARE str1, str2, one, two: STRING
+
+        str1 = ""
+        str2 = ""
+        one = ""
+        two = ""
+
+        INPUT "ENTER THE STRING: ",str1
+
+        IF LEN(str1) < 2 
+          THEN
+            str2 = LEFT(str1, 1)
+          ELSE
+            one = LEFT(str1, 2)
+            two = RIGHT(str1, 2)
+            str2 = one + two
+        END IF
+
+        OUTPUT "THE OUTPUT IS: ",str2
+
+[VB]:
+
+        Dim str1, str2, one, two As String
+
+        str1 = ""
+        str2 = ""
+        one = ""
+        two = ""
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+
+        If Len(str1) < 2 Then
+            str2 = Left(str1, 1)
+        Else
+            one = Left(str1, 2)
+            two = Right(str1, 2)
+            str2 = one & two
+        End If
+        Console.WriteLine("THE OUTPUT IS: " & str2)
+        Console.ReadKey()
+
+8.
+fix_start:
+Given a string s, return a string
+where all occurences of its first char have
+been changed to '*', except do not change
+the first char itself.
+e.g., 'babble' yields 'ba*le' or 'alpha' outputs 'alph'
+Assume that the string is length 1 or more
+
+[PSCUEDOCODE]:
+
+        DECLARE str1, str2: STRING
+        DECLARE char1, char2: CHARACTER
+        DECLARE i: INTEGER
+
+        str1 = ""
+        str2 = ""
+        char1 = ''
+        char2 = ''
+        i = 0
+
+
+
+        INPUT "ENTER THE STRING: ",str1
+
+        char1 = LEFT(str1, 1)
+
+        FOR i = 1 TO (LEN(str1) - 1)
+            char2 = MID(str1, i + 1, 1)
+            IF char1 = char2 
+              THEN
+                str2 = str2 & "*"
+              ELSE
+                str2 = str2 & char2
+            END IF
+        NEXT i
+        OUTPUT "THE OUTPUT IS: ",(char1 + str2)
+
+[VB]:
+        Dim str1, str2 As String
+        Dim char1, char2 As Char
+        Dim i As Integer
+
+        str1 = ""
+        str2 = ""
+        char1 = ""
+        char2 = ""
+        i = 0
+
+
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+
+        char1 = Left(str1, 1)
+
+        For i = 1 To (Len(str1) - 1)
+            char2 = Mid(str1, i + 1, 1)
+            If char1 = char2 Then
+                str2 = str2 & "*"
+            Else
+                str2 = str2 & char2
+            End If
+        Next i
+        Console.WriteLine("THE OUTPUT IS: " & char1 & str2)
+        Console.ReadKey()
+
+9.
+MixUp:
+Given strings a and b, return a single string with a and b separated
+by a space '<a> <b>', except swap the first 2 chars of each string.
+e.g.
+  'mix', pod' -> 'pox mid'
+  'dog', 'dinner' -> 'dig donner'
+  Assume a and b are length 2 or more.
+
+[PSCUEDOCODE]:
+        DECLARE str1, str2, str3, str4, str5: STRING
+        DECLARE char1, char2: CHARACTER
+
+        str1 = ""
+        str2 = ""
+        str3 = ""
+        str4 = ""
+        str5 = ""
+        char1 = ''
+        char2 = ''
+
+        INPUT "ENTER ONE WORD STRING: ",str1
+        INPUT "ENTER ANOTHER ONE WORD STRING: ",str2
+
+        char1 = MID(str1, 1, 1)
+        char2 = MID(str2, 1, 1)
+        str3 = char2 & RIGHT(str1, Len(str1) - 1)
+        str4 = char1 & RIGHT(str2, Len(str2) - 1)
+        str5 = str3 + ' ' + str4
+
+        OUTPUT "THE OUTPUT IS: ",str5
+
+
+[VB]:
+
+        Dim str1, str2, str3, str4, str5 As String
+        Dim char1, char2 As Char
+
+        str1 = ""
+        str2 = ""
+        str3 = ""
+        str4 = ""
+        str5 = ""
+        char1 = ""
+        char2 = ""
+
+        Console.Write("ENTER ONE WORD STRING: ")
+        str1 = Console.ReadLine
+        Console.Write("ENTER ANOTHER ONE WORD STRING: ")
+        str2 = Console.ReadLine
+
+        char1 = Mid(str1, 1, 1)
+        char2 = Mid(str2, 1, 1)
+        str3 = char2 & Right(str1, Len(str1) - 1)
+        str4 = char1 & Right(str2, Len(str2) - 1)
+        str5 = str3 & " " & str4
+
+        Console.WriteLine("THE OUTPUT IS: " & str5)
+        Console.ReadKey()
+
+10.
+verbing:
+Given a string, if its length is at least 3,
+add 'ing' to its end.
+Unless it already ends in 'ing', in which case
+add 'ly' instead.
+If the string length is less than 3, leave it unchanged.
+Return the resulting string.
+examples:
+input 'end' --> 'ending'
+input 'ending' --> 'endingly'
+input 'go' --> 'go'
+
+[PSCUEDOCODE]:
+
+        DECLARE str1, str2, str3, str4: STRING
+
+        str1 = ""
+        str2 = "ing"
+        str3 = ""
+        str4 = ""
+
+        INPUT "ENTER THE STRING: ",str1
+
+        str1 = LOWERCASE(str1)
+        str3 = LOWERCASE(RIGHT(str1, 3))
+
+        IF LEN(str1) < 3 
+          THEN
+            OUTPUT "THE OUTPUT IS: ",str1
+        ELSEIF str2 = str3 
+          THEN
+            str4 = str1 + "ly"
+            OUTPUT "THE OUTPUT IS: ",str4
+        ELSEIF str2 <> str3 
+          THEN
+            str4 = str1 + str2
+            OUTPUT "THE OUTPUT IS: ",str4
+        END IF
+
+
+
+[VB]:
+
+        Dim str1, str2, str3, str4 As String
+
+        str1 = ""
+        str2 = "ing"
+        str3 = ""
+        str4 = ""
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+
+        str1 = LCase(str1)
+        str3 = LCase(Right(str1, 3))
+
+        If Len(str1) < 3 Then
+            Console.WriteLine("THE OUTPUT IS: " & str1)
+        ElseIf str2 = str3 Then
+            str4 = str1 & "ly"
+            Console.WriteLine("THE OUTPUT IS: " & str4)
+        ElseIf str2 <> str3 Then
+            str4 = str1 & str2
+            Console.WriteLine("THE OUTPUT IS: " & str4)
+        End If
+        Console.ReadKey()
+
+11.
+not_bad:
+Given a string, find the first appearance of the
+substring 'not' and 'bad'. If the 'bad' follows
+the 'not', replace the whole 'not'...'bad' substring
+with 'good'.
+Return the resulting string.
+Input: 'This dinner is not that bad!' 
+Outputs: This dinner is good!
+
+
+[PSCUEDOCODE]:
+
+        DECLARE str1, str2: STRING
+        DECLARE pos1, pos2: INTEGER
+
+        str1 = ""
+        str2 = ""
+        pos1 = 0
+        pos2 = 0
+
+        INPUT "ENTER THE STRING: ",str1
+
+        str1 = LOWERCASE(str1)
+        pos1 = LOCATE(str1, "not")
+        pos2 = LOCATE(str1, "bad")
+
+        IF pos1 = 0 OR pos2 = 0 OR pos2 < pos1 
+          THEN
+            OUTPUT "THE OUTPUT IS: ",str1
+        ELSEIF pos1 > 0 AND pos2 > 0 AND pos2 > pos1 
+          THEN
+            str2 = LEFT(str1, pos1 - 1) + "good" + RIGHT(str1, LEN(str1) - (pos2 + 2))
+            OUTPUT "THE OUTPUT IS: ",str2
+        END IF
+
+
+
+[VB]:
+
+        Dim str1, str2 As String
+        Dim pos1, pos2 As Integer
+
+        str1 = ""
+        str2 = ""
+        pos1 = 0
+        pos2 = 0
+
+        Console.Write("ENTER THE STRING: ")
+        str1 = Console.ReadLine
+
+        str1 = LCase(str1)
+        pos1 = InStr(str1, "not")
+        pos2 = InStr(str1, "bad")
+
+        If pos1 = 0 Or pos2 = 0 Or pos2 < pos1 Then
+            Console.WriteLine("THE OUTPUT IS: " & str1)
+        ElseIf pos1 > 0 And pos2 > 0 And pos2 > pos1 Then
+            str2 = Left(str1, pos1 - 1) & "good" & Right(str1, Len(str1) - (pos2 + 2))
+            Console.WriteLine("THE OUTPUT IS: " & str2)
+        End If
+
+        Console.ReadKey()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
